@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Strike — 3D FPS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="ui">
+    <div id="hud" class="hidden">
+      <!-- Corner brackets -->
+      <div class="hud-bracket tl"></div>
+      <div class="hud-bracket tr"></div>
+      <div class="hud-bracket bl"></div>
+      <div class="hud-bracket br"></div>
+
+      <!-- Top bar -->
+      <div id="hud-top">
+        <div class="hud-panel player-panel">
+          <div class="panel-header">
+            <span class="icon shield">◆</span>
+            <span class="label">OPERATOR</span>
+          </div>
+          <div class="hp-row">
+            <div class="bar-wrap wide">
+              <div id="player-hp" class="bar player"></div>
+              <div id="player-hp-damage" class="bar damage-trail"></div>
+            </div>
+            <span id="player-hp-text" class="hp-num">100</span>
+          </div>
+        </div>
+
+        <div class="hud-panel center-panel">
+          <div id="combat-alert" class="combat-alert hidden">ENEMY ENGAGED</div>
+          <span id="status">Eliminate the enemy</span>
+          <span id="round-timer">00:00</span>
+        </div>
+
+        <div class="hud-panel enemy-panel">
+          <div class="panel-header right">
+            <span class="label">HOSTILE</span>
+            <span class="icon hostile">✕</span>
+          </div>
+          <div class="hp-row reverse">
+            <span id="bot-hp-text" class="hp-num enemy-num">100</span>
+            <div class="bar-wrap wide">
+              <div id="bot-hp" class="bar bot"></div>
+            </div>
+          </div>
+          <div class="enemy-meta">
+            <span id="enemy-distance">-- m</span>
+            <span class="sep">|</span>
+            <span id="enemy-state">Patrolling</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enemy direction indicator -->
+      <div id="enemy-tracker">
+        <div id="enemy-arrow">▲</div>
+        <span id="enemy-bearing">0°</span>
+      </div>
+
+      <!-- Crosshair -->
+      <div id="crosshair">
+        <div class="ch-ring"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-line top"></div>
+        <div class="ch-line bottom"></div>
+        <div class="ch-line left"></div>
+        <div class="ch-line right"></div>
+      </div>
+      <div id="hit-marker" class="hidden"></div>
+
+      <!-- Bottom bar -->
+      <div id="hud-bottom">
+        <div class="hud-panel weapon-panel">
+          <div class="panel-header">
+            <span class="label">PLASMA RIFLE</span>
+          </div>
+          <div class="weapon-row">
+            <span id="ammo-status" class="ammo-ready">READY</span>
+            <div class="bar-wrap reload-bar">
+              <div id="reload-bar" class="bar reload"></div>
+            </div>
+          </div>
+          <span id="fire-rate" class="sub-text">Semi-auto · 12 DMG</span>
+        </div>
+
+        <div class="hud-panel stats-panel">
+          <div class="stat"><span class="stat-label">KILLS</span><span id="score" class="stat-value">0</span></div>
+          <div class="stat"><span class="stat-label">ACCURACY</span><span id="accuracy" class="stat-value">--%</span></div>
+          <div class="stat"><span class="stat-label">DEATHS</span><span id="deaths" class="stat-value">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="damage-vignette"></div>
+
+    <div id="overlay">
+      <div class="panel">
+        <h1>Arena Strike</h1>
+        <p class="tagline">1v1 arena combat — hard mode</p>
+        <div class="controls">
+          <div><kbd>↑</kbd><kbd>↓</kbd> Move forward / back</div>
+          <div><kbd>←</kbd><kbd>→</kbd> Turn left / right</div>
+          <div><kbd>Space</kbd> Shoot</div>
+        </div>
+        <button id="start-btn">Enter Arena</button>
+      </div>
+    </div>
+
+    <div id="message" class="hidden"></div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
