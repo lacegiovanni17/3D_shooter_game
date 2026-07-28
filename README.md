@@ -7,6 +7,8 @@
 * 💞️ I’m looking to collaborate on JS projects 
 * 📫 How to reach me chidike.henry@gmail.com
 
+# Introduction
+This game was created using certain prompts by cursor AI
 
 ## Technologies Used
 * CSS
